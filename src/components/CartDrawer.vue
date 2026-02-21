@@ -93,7 +93,7 @@ function handleCheckout() {
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: flex-end;
-  z-index: 999;
+  z-index: 9999;
 }
 
 .drawer-content {
