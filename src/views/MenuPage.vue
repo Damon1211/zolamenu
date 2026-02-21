@@ -6,7 +6,7 @@
         <p class="page-subtitle">美味佳肴，即刻送达</p>
       </div>
       <div class="header-actions">
-        <button class="cart-btn" @click="handleCartClick">
+        <button class="cart-btn" @click="toggleCart">
           <span class="cart-icon">🛒</span>
           <span v-if="cartCount > 0" class="cart-count">{{ cartCount }}</span>
         </button>
@@ -42,12 +42,6 @@
       @close="closeDishDetail"
       @add-to-cart="addToCart"
     />
-
-    <div class="debug-info">
-      <p>购物车状态: {{ isCartOpen ? '打开' : '关闭' }}</p>
-      <p>购物车数量: {{ cartCount }}</p>
-      <button @click="toggleCart">切换购物车</button>
-    </div>
   </div>
 </template>
 
@@ -91,13 +85,6 @@ function showDishDetail(dish) {
 
 function closeDishDetail() {
   selectedDish.value = null
-}
-
-function handleCartClick() {
-  console.log('购物车按钮被点击')
-  console.log('当前购物车状态:', isCartOpen.value)
-  toggleCart()
-  console.log('切换后购物车状态:', isCartOpen.value)
 }
 </script>
 

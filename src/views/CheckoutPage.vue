@@ -107,6 +107,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useCartStore } from '../stores/cart'
 import { useOrderStore } from '../stores/order'
@@ -116,8 +117,10 @@ const router = useRouter()
 const cartStore = useCartStore()
 const orderStore = useOrderStore()
 
-const { cartItems, cartCount, cartTotal, clearCart } = cartStore
-const { createOrder, currentOrder } = orderStore
+const { cartItems, cartCount, cartTotal } = storeToRefs(cartStore)
+const { clearCart } = cartStore
+const { createOrder } = orderStore
+const { currentOrder } = storeToRefs(orderStore)
 
 const orderForm = ref({
   name: '',
